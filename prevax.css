@@ -1,0 +1,74 @@
+:root {
+  --hue: 60;
+  --text-color: hsl(var(--hue), 10%, 10%);
+  --background-color: hsl(var(--hue), 5%, 85%);
+  --link-color: hsl(220, 50%, 45%);
+  --headline-text-color: hsl(var(--hue), 50%, 25%);
+  --headline-background-color: hsl(var(--hue), 30%, 90%);
+  --button-background-color: hsl(var(--hue), 55%, 85%);
+  --selected-text-color: hsl(var(--hue), 70%, 10%);
+  --selected-text-background-color: hsl(var(--hue), 80%, 70%);
+}
+
+body { 
+  background: var(--background-color);
+  color: var(--text-color);
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+h1, h2 {
+  text-align: center;
+  color: var(--headline-text-color);
+  background: var(--headline-background-color);
+  border-radius: 1em;
+}
+h1 {
+  font-size: x-large;
+}
+h2 {
+  font-size: large;
+}
+
+p {
+  text-indent: 0;
+  border: solid 1px orange;
+  border: none;
+}
+
+label {
+  white-space: nowrap;
+}
+
+a {
+  color: var(--link-color);
+}
+a:hover {
+  color: var(--background-color);
+  background: var(--link-color);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 4pt;
+  border-radius: 1em;
+  border: solid 1px;
+  box-shadow: 1ex 1ex 4pt rgba(100, 100, 100, 0.5);
+  background: var(--button-background-color);
+}
+
+#filled_questionnaire_container {
+  width: 100%;
+  overflow: auto;
+}
+
+::selection {
+  color: var(--selected-text-color);
+  background: var(--selected-text-background-color);
+}
+::-moz-selection {
+  color: var(--selected-text-color);
+  background: var(--selected-text-background-color);
+}

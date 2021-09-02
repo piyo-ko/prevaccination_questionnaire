@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="prevax.css" type="text/css">
+<script src="prevax.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【‼️試作です‼️】新型コロナワクチン接種の予診票【‼️実用ではありません‼️】</title>
+</head>
+<body>
+
+<h1>【‼️試作です‼️】新型コロナワクチン接種の予診票【‼️実用ではありません‼️】</h1>
+
+<p>
+【‼️注意‼️】この入力フォームは、<a href="https://twitter.com/tweeting_drtaka/status/1431952943771648001" target="_blank">このスレッド</a>を拝見して試しに作ってみたものです。
+素人による試作であり、入力値のチェックもしていませんし、デバッグもあまりしていません。
+叩き台の叩き台くらいになれば幸い、というレベルです。
+能力的に私の使える技術が限られているため、PDFファイルではなくPNG画像を生成します。
+ソースコードは<a href="https://github.com/piyo-ko/prevaccination_questionnaire" target="_blank">GitHub</a>にあります。
+</p>
+
+<form name="questionnaire">
+
+<h2>住民票に記載されている住所</h2>
+
+<p>
+<select name="prefecture">
+  <option value="北海道">北海道</option>
+  <option value="青森県">青森県</option>
+  <option value="岩手県">岩手県</option>
+  <option value="宮城県">宮城県</option>
+  <option value="秋田県">秋田県</option>
+  <option value="山形県">山形県</option>
+  <option value="福島県">福島県</option>
+  <option value="茨城県">茨城県</option>
+  <option value="栃木県">栃木県</option>
+  <option value="群馬県">群馬県</option>
+  <option value="埼玉県">埼玉県</option>
+  <option value="千葉県">千葉県</option>
+  <option value="東京都">東京都</option>
+  <option value="神奈川県">神奈川県</option>
+  <option value="新潟県">新潟県</option>
+  <option value="富山県">富山県</option>
+  <option value="石川県">石川県</option>
+  <option value="福井県">福井県</option>
+  <option value="山梨県">山梨県</option>
+  <option value="長野県">長野県</option>
+  <option value="岐阜県">岐阜県</option>
+  <option value="静岡県">静岡県</option>
+  <option value="愛知県">愛知県</option>
+  <option value="三重県">三重県</option>
+  <option value="滋賀県">滋賀県</option>
+  <option value="京都府">京都府</option>
+  <option value="大阪府">大阪府</option>
+  <option value="兵庫県">兵庫県</option>
+  <option value="奈良県">奈良県</option>
+  <option value="和歌山県">和歌山県</option>
+  <option value="鳥取県">鳥取県</option>
+  <option value="島根県">島根県</option>
+  <option value="岡山県">岡山県</option>
+  <option value="広島県">広島県</option>
+  <option value="山口県">山口県</option>
+  <option value="徳島県">徳島県</option>
+  <option value="香川県">香川県</option>
+  <option value="愛媛県">愛媛県</option>
+  <option value="高知県">高知県</option>
+  <option value="福岡県">福岡県</option>
+  <option value="佐賀県">佐賀県</option>
+  <option value="長崎県">長崎県</option>
+  <option value="熊本県">熊本県</option>
+  <option value="大分県">大分県</option>
+  <option value="宮崎県">宮崎県</option>
+  <option value="鹿児島県">鹿児島県</option>
+  <option value="沖縄県">沖縄県</option>
+</select>
+
+<span class="nowrap">
+  <input name="municipality" type="text" size="16" maxlength="16" placeholder="市区町村名">
+  <label><input name="municipality_type" type="radio" value="市"> 市</label>
+  <label><input name="municipality_type" type="radio" value="区"> 区</label>
+  <label><input name="municipality_type" type="radio" value="町"> 町</label>
+  <label><input name="municipality_type" type="radio" value="村"> 村</label>
+</span>
+
+<input name="address" type="text" size="64" maxlength="64" placeholder="市区町村以下の住所">
+</p>
+
+<h2>氏名</h2>
+<p>
+<label>フリガナ <input name="name_kana" type="text" size="" maxlength=""></label>
+<label>漢字 <input name="name_kanji" type="text" size="" maxlength=""></label>
+</p>
+
+<h2>電話番号</h2>
+<p>
+<label>(<input name="tel_1" type="text" size="5" maxlength="5" pattern="[0-9]+">)</label>
+<input name="tel_2" type="text" size="4" maxlength="4" pattern="[0-9]+">
+-
+<input name="tel_3" type="text" size="4" maxlength="4" pattern="[0-9]+">
+</p>
+
+<h2>生年月日</h2>
+<p>
+<label><input name="birth_year" type="number" value="2000" min="1921" max="2010" step="1">年</label>
+<label><input name="birth_month" type="number" value="6" min="1" max="12" step="1">月</label>
+<label><input name="birth_date" type="number" value="6" min="1" max="31" step="1">日</label>
+<label>(満<input name="age" type="number" value="21" min="11" max="100" step="1">歳)</label>
+</p>
+
+<h2>性別</h2>
+<p>
+<label><input name="sex" type="radio" value="男"> 男</label>
+<label><input name="sex" type="radio" value="女"> 女</label>
+</p>
+
+<h2>診察前の体温</h2>
+<p>
+<label>
+  <input name="temperature" type="number" value="36.0" min="35.0" max="38.0" step="0.1"> ℃
+</label>
+</p>
+
+<h2>Q1</h2>
+
+<p>
+新型コロナワクチンの接種を初めて受けますか。
+<label><input name="Q1" type="radio" value="yes"> はい</label>
+<label><input name="Q1" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+接種を受けたことがある場合：　
+<label>1回目
+  <input name="Q1_1st_jab_date" type="date">
+</label>
+　
+<label>2回目
+  <input name="Q1_2nd_jab_date" type="date">
+</label>
+</p>
+
+<h2>Q2</h2>
+<p>
+現時点で住民票のある市町村と、クーポン券に記載されている市町村は同じですか。
+<label><input name="Q2" type="radio" value="yes"> はい</label>
+<label><input name="Q2" type="radio" value="no"> いいえ</label>
+</p>
+
+<h2>Q3</h2>
+<p>
+『新型コロナワクチンの説明書』を読んで、効果や副反応などについて理解しましたか。
+  <label><input name="Q3" type="radio" value="yes"> はい</label>
+  <label><input name="Q3" type="radio" value="no"> いいえ</label>
+</p>
+
+<h2>Q4</h2>
+<p>
+接種順位の上位となる対象グループに該当しますか。
+  <label><input name="Q4" type="radio" value="yes"> はい</label>
+  <label><input name="Q4" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+<label>
+  <input name="Q4_medical_worker" type="checkbox"> 医療従事者等
+</label>
+<label>
+  <input name="Q4_age_65_plus" type="checkbox"> 65歳以上
+</label>
+<label>
+  <input name="Q4_age_60_64" type="checkbox"> 60〜64歳
+</label>
+<label>
+  <input name="Q4_care_worker" type="checkbox"> 高齢者施設等の従事者
+</label>
+<label>
+  <input name="Q4_has_disease" type="checkbox"> 基礎疾患を有する
+  <label>(病名：
+    <input name="Q4_disease" type="text" size="64" maxlength="64">
+  ）</label>
+</label>
+</p>
+
+<h2>Q5</h2>
+<p>
+現在、何らかの病気にかかって、治療（投薬など）を受けていますか。
+  <label><input name="Q5" type="radio" value="yes"> はい</label>
+  <label><input name="Q5" type="radio" value="no"> いいえ</label>
+</label>
+</p>
+
+<p>
+病名：<br>
+<label>
+  <input name="Q5_has_heart_disease" type="checkbox"> 心臓病
+</label>
+<label>
+  <input name="Q5_has_kidney_disease" type="checkbox"> 腎臓病
+</label>
+<label>
+  <input name="Q5_has_liver_disease" type="checkbox"> 肝臓病
+</label>
+<label>
+  <input name="Q5_has_blood_disease" type="checkbox"> 血液疾患
+</label>
+<label>
+  <input name="Q5_has_a_bleeding_problem" type="checkbox"> 血が止まりにくい病気
+</label>
+<label>
+  <input name="Q5_has_immune_deficiency" type="checkbox"> 免疫不全
+</label>
+<label>
+  <input name="Q5_has_other_diseases" type="checkbox"> その他
+  <label>（
+    <input name="Q5_disease_name" type="text" size="" maxlength="">
+  ）</label>
+</label>
+
+<p>
+治療内容：<br>
+<label>
+  <input name="Q5_take_blood_thinner" type="checkbox"> 血をサラサラにする薬
+  <label>（
+    <input name="Q5_blood_thinner" type="text" size="" maxlength="">
+  ）</label>
+</label>
+<br>
+<label>
+  <input name="Q5_take_other_drugs" type="checkbox"> その他
+  <label>（
+    <input name="Q5_other_drugs" type="text" size="" maxlength="">
+  ）</label>
+</label>
+</p>
+
+<h2>Q6</h2>
+<p>
+最近１ヶ月以内に熱が出たり、病気にかかったりしましたか。
+<label><input name="Q6" type="radio" value="yes"> はい</label>
+<label><input name="Q6" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+<label>病名（
+  <input name="Q6_desease" type="text" size="" maxlength="">
+）</label>
+</p>
+
+<h2>Q7</h2>
+<p>
+今日、体に具合が悪いところがありますか。
+<label><input name="Q7" type="radio" value="yes"> はい</label>
+<label><input name="Q7" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+<label>症状（
+  <input name="Q7_symptoms" type="text" size="" maxlength="">
+）</label>
+</p>
+
+<h2>Q8</h2>
+<p>
+けいれん（ひきつけ）を起こしたことがありますか。
+<label><input name="Q8" type="radio" value="yes"> はい</label>
+<label><input name="Q8" type="radio" value="no"> いいえ</label>
+</p>
+
+<h2>Q9</h2>
+<p>
+薬や食品などで、重いアレルギー症状（アナフィラキシーなど）を起こしたことがありますか。
+<label><input name="Q9" type="radio" value="yes"> はい</label>
+<label><input name="Q9" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+薬・食品など原因になったもの
+<label>（
+  <input name="Q9_allergens" type="text" size="" maxlength="">
+）</label>
+</p>
+
+<h2>Q10</h2>
+<p>
+これまでに予防接種を受けて具合が悪くなったことはありますか。
+<label><input name="Q10" type="radio" value="yes"> はい</label>
+<label><input name="Q10" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+<label>種類（
+  <input name="Q10_vaccine" type="text" size="" maxlength="">
+）</label>
+<br>
+<label>症状（
+  <input name="Q10_symptoms" type="text" size="" maxlength="">
+）</label>
+</p>
+
+<h2>Q11</h2>
+<p>
+現在妊娠している可能性（生理が予定より遅れているなど）はありますか。
+または、授乳中ですか。
+<label><input name="Q11" type="radio" value="yes"> はい</label>
+<label><input name="Q11" type="radio" value="no"> いいえ</label>
+</p>
+
+<h2>Q12</h2>
+<p>
+２週間以内に予防接種を受けましたか。
+<label><input name="Q12" type="radio" value="yes"> はい</label>
+<label><input name="Q12" type="radio" value="no"> いいえ</label>
+</p>
+
+<p>
+<label>種類（
+  <input name="Q12_vaccine" type="text" size="" maxlength="">
+）</label>
+<label>受けた日（
+  <input name="Q12_jabbed_date" type="date">
+）</label>
+</p>
+
+<h2>Q13</h2>
+<p>
+今日の予防接種について質問がありますか。
+<label><input name="Q13" type="radio" value="yes"> はい</label>
+<label><input name="Q13" type="radio" value="no"> いいえ</label>
+</p>
+
+<hr>
+
+<p>
+記入済み予診票のPNG画像を生成します。
+<button type="button" onclick="get_finished_questionnaire()">画像をダウンロード</button>
+</p>
+
+<div id="filled_questionnaire_container"></div>
+
+</form>
+
+
+</body>
+</html>
