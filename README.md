@@ -2,7 +2,7 @@
 
 ## これは何？
 [このスレッド](https://twitter.com/tweeting_drtaka/status/1431952943771648001)を拝見して試しに作ってみたものです。
-[フォーム](https://github.com/piyo-ko/prevaccination_questionnaire/index.html)に入力してボタンをタップすると、紙の予診票のレイアウトで記入済みの状態の PNG 画像を生成し、それをダウンロードします。
+[フォーム](https://piyo-ko.github.io/prevaccination_questionnaire/index.html)に入力してボタンをタップすると、紙の予診票のレイアウトで記入済みの状態の PNG 画像を生成し、それをダウンロードします。
 
 ## 注意事項
 * 試作品なので、入力値のチェックもしていませんし、デバッグもあまりしていません。
